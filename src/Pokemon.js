@@ -29,9 +29,9 @@ const Pokemon = (props) => {
       <>
         <Typography variant="h1">
           {`${id}.`} {toFirstCharUppercase(name)}
-          <img src={front_default} />
+          <img src={front_default} alt="" />
         </Typography>
-        <img style={{ width: "300px", height: "300px" }} src={fullImageUrl} />
+        <img style={{ width: "300px", height: "300px" }} src={fullImageUrl} alt="" />
         <Typography variant="h3">Pokemon Info</Typography>
         <Typography>
           {"Species: "}
