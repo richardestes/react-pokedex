@@ -1,5 +1,16 @@
 import React, { useState, useEffect } from "react";
-import { AppBar, Toolbar, Grid, Card, CardMedia, CardContent, CircularProgress, Typography, TextField } from "@material-ui/core";
+import {
+  AppBar,
+  Toolbar,
+  Grid,
+  Card,
+  CardMedia,
+  CardContent,
+  CircularProgress,
+  IconButton,
+  Typography,
+  TextField,
+} from "@material-ui/core";
 import { fade, makeStyles } from "@material-ui/core/styles";
 import SearchIcon from "@material-ui/icons/Search";
 import { toFirstCharUppercase } from "./utilities";
@@ -32,6 +43,11 @@ const useStyles = makeStyles((theme) => ({
   searchInput: {
     width: "200px",
     margin: "5px",
+  },
+  headerTitle: {
+    padding: "10px",
+    marginLeft: "0px",
+    marginRight: "-10px",
   },
 }));
 
@@ -87,6 +103,7 @@ const Pokedex = (props) => {
             <SearchIcon className={classes.searchIcon} />
             <TextField className={classes.searchInput} onChange={handleSearchChange} label="Pokemon" variant="standard" />
           </div>
+          <Typography className={classes.headerTitle}>React Pokedex</Typography>
         </Toolbar>
       </AppBar>
       {pokemonData ? (
