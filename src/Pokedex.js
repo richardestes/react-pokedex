@@ -7,7 +7,6 @@ import {
   CardMedia,
   CardContent,
   CircularProgress,
-  IconButton,
   Typography,
   TextField,
 } from "@material-ui/core";
@@ -86,7 +85,11 @@ const Pokedex = (props) => {
     return (
       <Grid item xs={4} key={pokemonId}>
         <Card onClick={() => history.push(`/${pokemonId}`)}>
-          <CardMedia className={classes.cardMedia} image={sprite} style={{ width: "130px", height: "130px" }} />
+          <CardMedia
+            className={classes.cardMedia}
+            image={sprite}
+            style={{ width: "130px", height: "130px" }}
+          />
           <CardContent className={classes.cardContent}>
             <Typography>{`${id}. ${toFirstCharUppercase(name)}`}</Typography>
           </CardContent>
@@ -101,14 +104,21 @@ const Pokedex = (props) => {
         <Toolbar>
           <div className={classes.searchContainer}>
             <SearchIcon className={classes.searchIcon} />
-            <TextField className={classes.searchInput} onChange={handleSearchChange} label="Pokemon" variant="standard" />
+            <TextField
+              className={classes.searchInput}
+              onChange={handleSearchChange}
+              label="Pokemon"
+              variant="standard"
+            />
           </div>
           <Typography className={classes.headerTitle}>React Pokedex</Typography>
         </Toolbar>
       </AppBar>
       {pokemonData ? (
         <Grid container spacing={2} className={classes.pokedexContainer}>
-          {Object.keys(pokemonData).map((pokemonId) => pokemonData[pokemonId].name.includes(filter) && getPokemonCard(pokemonId))}
+          {Object.keys(pokemonData).map(
+            (pokemonId) => pokemonData[pokemonId].name.includes(filter) && getPokemonCard(pokemonId)
+          )}
         </Grid>
       ) : (
         <CircularProgress />
